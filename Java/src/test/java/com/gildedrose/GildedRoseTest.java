@@ -253,4 +253,61 @@ public class GildedRoseTest {
         assertEquals("Other Item Quality failed", 0, app.items[0].quality);
     }
     // ---------------------------------------------------
+
+    // ===================================================
+    // Conjured Items: Quality = [0, 50]
+    // SellIn - unbounded integer
+
+    // ---------------------------------------------------
+    // Conjured: Conjured Item sellIn > 0 (always decreases by 1), quality degrades
+    // twice as fast;
+    @Test
+    public void ConjuredItemsTest1() {
+        Item[] items = new Item[] { new Item("Conjured Mana Cake", 3, 6) };
+        GildedRose app = new GildedRose(items);
+        app.updateQuality();
+        assertEquals("Other Item SellIn failed", 2, app.items[0].sellIn);
+        assertEquals("Other Item Quality failed", 4, app.items[0].quality);
+    }
+    // ---------------------------------------------------
+
+    // ---------------------------------------------------
+    // Conjured: Conjured Item sellIn = 0 (always decreases by 1), quality degrades
+    // twice as fast;
+    @Test
+    public void ConjuredItemsTest2() {
+        Item[] items = new Item[] { new Item("Conjured Mana Cake", 0, 20) };
+        GildedRose app = new GildedRose(items);
+        app.updateQuality();
+        assertEquals("Other Item SellIn failed", -1, app.items[0].sellIn);
+        assertEquals("Other Item Quality failed", 16, app.items[0].quality);
+    }
+    // ---------------------------------------------------//
+
+    // ---------------------------------------------------
+    // Conjured: Conjured Item sellIn < 0 (always decreases by 1), quality degrades
+    // twice as fast
+    @Test
+    public void ConjuredItemsTest3() {
+        Item[] items = new Item[] { new Item("Conjured Mana Cake", -3, 6) };
+        GildedRose app = new GildedRose(items);
+        app.updateQuality();
+        assertEquals("Other Item SellIn failed", -4, app.items[0].sellIn);
+        assertEquals("Other Item Quality failed", 2, app.items[0].quality);
+    }
+    // ---------------------------------------------------//
+
+    // ---------------------------------------------------
+    // Conjured: Conjured Item sellIn = 0 (always decreases by 1), quality degrades
+    // twice as fast
+    @Test
+    public void ConjuredItemsTest4() {
+        Item[] items = new Item[] { new Item("Conjured Mana Cake", 0, 1) };
+        GildedRose app = new GildedRose(items);
+        app.updateQuality();
+        assertEquals("Other Item SellIn failed", -1, app.items[0].sellIn);
+        assertEquals("Other Item Quality failed", 0, app.items[0].quality);
+    }
+    // ---------------------------------------------------
+
 }
