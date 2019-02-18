@@ -11,7 +11,7 @@ public class GildedRoseTest {
     // SellIn - unbounded integer
 
     // ---------------------------------------------------
-    // Aged Brie: sellIn > 0 (always decreases by 1), quality -= 1;
+    // Aged Brie: sellIn > 0 (always decreases by 1), quality += 1;
     @Test
     public void AgedBrieTest1() {
         Item[] items = new Item[] { new Item("Aged Brie", 2, 0) };
@@ -63,7 +63,7 @@ public class GildedRoseTest {
 
     // ===================================================
     // Sulfuras: const quality = 80
-    // SellIn - unbounded integer
+    // SellIn - constant
 
     // ---------------------------------------------------
     // Sulfuras: sellIn = 0 (remains constant), const quality = 80
@@ -187,7 +187,19 @@ public class GildedRoseTest {
         assertEquals("Backstage passes SellIn failed", -11, app.items[0].sellIn);
         assertEquals("Backstage passes Quality failed", 0, app.items[0].quality);
     }
+
     // --------------------------------------------------
+
+    // ---------------------------------------------------
+    // Backstage passes: 5 > sellIn > 0 (always decreases by 1), quality = 55;
+    @Test
+    public void BackstagePassesTest8() {
+        Item[] items = new Item[] { new Item("Backstage passes to a TAFKAL80ETC concert", 3, 49) };
+        GildedRose app = new GildedRose(items);
+        app.updateQuality();
+        assertEquals("Backstage passes SellIn failed", 2, app.items[0].sellIn);
+        assertEquals("Backstage passes Quality failed", 50, app.items[0].quality);
+    }
     // ===================================================
 
     // ===================================================
@@ -228,8 +240,8 @@ public class GildedRoseTest {
         assertEquals("Other Item SellIn failed", -4001, app.items[0].sellIn);
         assertEquals("Other Item Quality failed", 23, app.items[0].quality);
     }
+    // ---------------------------------------------------
 
-    // ---------------------------------------------------//
     // ---------------------------------------------------
     // Others: quality = 0;
     @Test
