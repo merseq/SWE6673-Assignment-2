@@ -13,4 +13,5 @@ Refactoring Code: Emerging Software Engineering Processes Assignment 2 - Part 3 
 
 Adding code for Conjured Items: Emerging Software Engineering Processes Assignment 2 - Part 4 - https://www.youtube.com/watch?v=85e41y3KInE&feature=youtu.be
 
-# The screenshots for this assignment are located in the "Screenshot" folder. These screenshots include test cases and code coverage for Original, Refactored code and new requirements of conjured items.
+#NOTE
+The screenshots for this assignment are located in the "Screenshot" folder. These screenshots include test cases and code coverage for Original, Refactored code and new requirements of conjured items.
