@@ -1,6 +1,6 @@
 # SWE 6733 - Emerging Software Engineering Processes
 
-Github Repository: https://github.com/amritrjakacabu015/SWE6673-Assignment-2
+Github Repository: https://github.com/amritrjakacabu015/SWE6733-Assignment-2
 
 Tools Used for the Assignment: Skype, Visual Studio Code, IntelliJ Idea Community edition, Git (GitHub.com).
 
